@@ -217,7 +217,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.TokenAuthentication",
-        # "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
     ),
 }
 
@@ -293,3 +293,9 @@ if GS_BUCKET_NAME:
     DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     STATICFILES_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
     GS_DEFAULT_ACL = "publicRead"
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+SENDGRID_API_KEY = env.str("SENDGRID_API_KEY", "")
+TO_EMAILS = env.str("TO_EMAILS", "")
+STRIPE_SECRET_KEY= env.str("STRIPE_SECRET_KEY", "")
